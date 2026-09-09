@@ -5,6 +5,6 @@
             <p class="text-gray-500 text-sm">Manage your applications</p>
         </div>
 
-        <livewire:job-board />
+        <livewire:application-table />
     </div>
 </x-app-layout>
