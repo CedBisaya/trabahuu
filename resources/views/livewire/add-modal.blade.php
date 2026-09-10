@@ -27,7 +27,7 @@
                 </button>
             </div>
 
-            <form wire:submit="save" class="overflow-y-auto pr-2 space-y-5 custom-scrollbar">
+            <form class="overflow-y-auto pr-2 space-y-5 custom-scrollbar">
                 
                 <!-- Row 1: Company & Job Title -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -75,13 +75,13 @@
                 <!-- Row 4: Source Link -->
                 <div>
                     <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Source Link</label>
-                    <input type="url" wire:model="source_link" placeholder="https://indeed.com/..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                    <input type="url" wire:model="source" placeholder="https://indeed.com/..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
                 </div>
 
                 <!-- Row 5: Job Description -->
                 <div>
                     <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Job Description</label>
-                    <textarea wire:model="job_description" rows="3" placeholder="Paste the job requirements or description here..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF] resize-none"></textarea>
+                    <textarea wire:model="description" rows="3" placeholder="Paste the job requirements or description here..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF] resize-none"></textarea>
                 </div>
 
                 <!-- Row 6: Notes -->
@@ -98,7 +98,7 @@
                 <button @click="show = false" type="button" class="px-5 py-2 text-sm font-medium text-gray-500 hover:text-[#6C7A89] transition border border-transparent hover:border-gray-200 rounded-lg">
                     Cancel
                 </button>
-                <button type="submit" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
+                <button wire:click="storeApplication" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
                     Save Application
                 </button>
             </div>
