@@ -2,7 +2,7 @@
     {{-- Search and Filters Section --}}
     <div class="flex flex-col sm:flex-row items-center justify-end gap-3 w-full lg:w-auto mb-4">
         <!-- Add Application Button -->
-        <button class="w-full sm:w-auto inline-flex items-center justify-center border border-gray-200 text-[#6C7A89] hover:bg-[#6C7A89] hover:text-[#FFFFFF] px-6 py-2.5 rounded-lg font-bold text-xs transition-all active:scale-95 whitespace-nowrap cursor-pointer bg-[#FFFFFF]">
+        <button @click="$dispatch('open-add-modal')" type="button" class="w-full sm:w-auto inline-flex items-center justify-center border border-gray-200 text-[#6C7A89] hover:bg-[#6C7A89] hover:text-[#FFFFFF] px-6 py-2.5 rounded-lg font-bold text-xs transition-all active:scale-95 whitespace-nowrap cursor-pointer bg-[#FFFFFF]">
             <x-heroicon-o-plus class="w-4 h-4 stroke-[3.5px] mr-1.5"/>
             <span>Add Application</span>
         </button>
@@ -81,4 +81,6 @@
             </tbody>
         </table>
     </div>
+    
+    <livewire:add-modal />
 </div>
