@@ -32,20 +32,21 @@
                 <!-- Row 1: Company & Job Title -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Company</label>
-                        <input type="text" wire:model="company" placeholder="e.g. Samsung" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Company<span class="text-sm text-red-500">*</span></label>
+                        <input type="text" wire:model="company" placeholder="e.g. Samsung" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
                     </div>
                     <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Job Title</label>
-                        <input type="text" wire:model="job_title" placeholder="e.g. IT Support" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Job Title<span class="text-sm text-red-500">*</span></label>
+                        <input type="text" wire:model="job_title" placeholder="e.g. IT Support" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
                     </div>
                 </div>
 
                 <!-- Row 2: Status & Applied At -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Status</label>
-                        <select wire:model="status" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF] appearance-none cursor-pointer">
+                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Status<span class="text-sm text-red-500">*</span></label>
+                        <select wire:model="status" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF] appearance-none cursor-pointer" required>
+                            <option value="">Select Status</option>
                             <option value="Applied">Applied</option>
                             <option value="Pre-Interview">Pre-Interview</option>
                             <option value="Assesment">Assesment</option>

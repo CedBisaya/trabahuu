@@ -2,12 +2,19 @@
 
 namespace App\Livewire;
 
+use App\Models\Application;
 use Livewire\Component;
 
 class ApplicationTable extends Component
 {
+
+
     public function render()
     {
-        return view('livewire.application-table');
+        $applications = Application::latest()->get();
+
+        return view('livewire.application-table', [
+            'applications' => $applications
+        ]);
     }
 }

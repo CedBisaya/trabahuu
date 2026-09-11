@@ -57,30 +57,30 @@
             </thead>
             <tbody class="divide-y divide-gray-50">
                 <!-- Mock Data Row -->
-                @for ($i = 0; $i < 10; $i++)
+                @foreach ($applications as $application)
                     <tr class="hover:bg-gray-50/50 transition duration-150">
-                        <td class="px-6 py-4 font-medium text-gray-800">Samsung</td>
-                        <td class="px-6 py-4">IT Support</td>
-                        <td class="px-6 py-4">Tabaco City</td>
-                        <td class="px-6 py-4">HR@HR.COM</td>
-                        <td class="px-6 py-4">25 August 2026</td>
-                        <td class="px-6 py-4">UNK</td>
-                        <td class="px-6 py-4 text-gray-500 truncate max-w-[150px]">Job description details...</td>
+                        <td class="px-6 py-4 font-medium text-gray-800">{{ $application->company }}</td>
+                        <td class="px-6 py-4">{{ $application->job_title }}</td>
+                        <td class="px-6 py-4">T{{ $application->address }}</td>
+                        <td class="px-6 py-4">{{ $application->contact_no }}</td>
+                        <td class="px-6 py-4">{{ $application->applied_at }}</td>
+                        <td class="px-6 py-4">{{ $application->source_link }}</td>
+                        <td class="px-6 py-4 text-gray-500 truncate max-w-[150px]">{{ $application->job_description }}</td>
                         <td class="px-6 py-4">
                             <!-- Updated Minimalist Badge -->
-                            <span class="bg-[#6C7A89] text-[#FFFFFF] text-[11px] px-3 py-1.5 rounded-full font-medium tracking-wide">Applied</span>
+                            <span class="bg-[#6C7A89] text-[#FFFFFF] text-[11px] px-3 py-1.5 rounded-full font-medium tracking-wide">{{ $application->status }}</span>
                         </td>
-                        <td class="px-6 py-4 text-gray-500">NOTES</td>
+                        <td class="px-6 py-4 text-gray-500">{{ $application->notes }}</td>
                         <td class="px-6 py-4 text-center">
                             <button class="text-[#6C7A89] hover:text-[#4A5568] hover:bg-gray-100 border border-transparent hover:border-gray-200 rounded p-1.5 transition">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"></path></svg>
                             </button>
                         </td>
                     </tr>
-                @endfor
+                @endforeach
             </tbody>
         </table>
     </div>
-    
+
     <livewire:add-modal />
 </div>
