@@ -78,7 +78,7 @@
                                         <x-heroicon-o-pencil class="w-4 h-4" />
                                     </button>
 
-                                    <button wire:click="deleteApplication({{ $application->id }})" 
+                                    <button @click="$dispatch('open-delete-modal')"
                                             title="Delete Application"
                                             class="text-red-400 hover:text-red-600 hover:bg-red-50 border border-transparent hover:border-red-100 rounded-lg p-1.5 transition">
                                         <x-heroicon-o-trash class="w-4 h-4" />
@@ -93,5 +93,6 @@
 
         <livewire:add-modal />
         <livewire:details-modal />
+        <livewire:delete-modal />
     </div>
 </div>
