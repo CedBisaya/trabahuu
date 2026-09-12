@@ -17,4 +17,8 @@ class Application extends Model
         'status',
         'notes',
     ];
+
+    protected $casts = [
+        'applied_at' => 'date',
+    ];
 }

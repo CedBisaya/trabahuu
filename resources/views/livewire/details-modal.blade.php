@@ -1,5 +1,5 @@
 <div x-data="{ show: false }" 
-     @open-add-modal.window="show = true"
+     @open-details-modal.window="show = true"
      @close-modal.window="show = false">
     
     <!-- Modal Backdrop -->
@@ -20,14 +20,14 @@
             
             <!-- Modal Header -->
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-lg font-bold text-[#6C7A89]">New Application</h3>
+                <h3 class="text-lg font-bold text-[#6C7A89]">Edit Application Details</h3>
                 <!-- Close Button uses Alpine -->
                 <button @click="show = false" type="button" class="text-gray-400 hover:text-[#6C7A89] transition border border-transparent hover:border-gray-200 rounded p-1">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
-            <form class="overflow-y-auto pr-2 space-y-5 custom-scrollbar">
+            <div class="overflow-y-auto pr-2 space-y-5 custom-scrollbar">
                 
                 <!-- Row 1: Company & Job Title -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -68,24 +68,30 @@
                         <input type="text" wire:model="address" placeholder="e.g. Tabaco City" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
                     </div>
                     <div>
-                    <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Source Link</label>
+                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Source Link</label>
                         <input type="url" wire:model="source" placeholder="https://indeed.com/..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
                     </div>
                 </div>
 
-            </form>
-
-            <!-- Modal Footer -->
-            <div class="mt-8 flex justify-end gap-3 pt-2">
-                <!-- Cancel Button uses Alpine -->
-                <button @click="show = false" type="button" class="px-5 py-2 text-sm font-medium text-gray-500 hover:text-[#6C7A89] transition border border-transparent hover:border-gray-200 rounded-lg">
-                    Cancel
-                </button>
-                <button wire:click="storeApplication" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
-                    Save Application
-                </button>
             </div>
 
+            <!-- Modal Footer -->
+            <div class="mt-8 flex items-center justify-between pt-2">
+                <button type="button" class="text-sm font-medium text-red-500 hover:text-red-600 transition border border-transparent hover:border-red-100 px-3 py-2 rounded-lg hover:bg-red-50">
+                    Delete
+                </button>
+
+                <div class="flex justify-end gap-3">
+                    <button @click="show = false" type="button" class="px-5 py-2 text-sm font-medium text-gray-500 hover:text-[#6C7A89] transition border border-transparent hover:border-gray-200 rounded-lg">
+                        Cancel
+                    </button>
+                    <button wire:click="storeApplication" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
+                        Save Application
+                    </button>
+                </div>
+                
+            </div>
+            
         </div>
     </div>
 </div>
