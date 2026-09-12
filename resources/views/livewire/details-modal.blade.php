@@ -27,69 +27,114 @@
                 </button>
             </div>
 
-            <div class="overflow-y-auto pr-2 space-y-5 custom-scrollbar">
-                
-                <!-- Row 1: Company & Job Title -->
+            {{-- load ta muna ta makaboa livewire with alpine --}}
+            <div wire:loading class="w-full pr-2 space-y-5">
+    
+                <!-- Skeleton Row 1 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Company<span class="text-sm text-red-500">*</span></label>
-                        <input type="text" wire:model="company" placeholder="e.g. Samsung" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                    <div class="animate-pulse">
+                        <div class="h-3 bg-gray-200 rounded w-20 mb-2.5 mt-1"></div>
+                        <div class="h-[38px] bg-gray-100 rounded-lg w-full"></div>
                     </div>
-                    <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Job Title<span class="text-sm text-red-500">*</span></label>
-                        <input type="text" wire:model="job_title" placeholder="e.g. IT Support" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                    <div class="animate-pulse">
+                        <div class="h-3 bg-gray-200 rounded w-24 mb-2.5 mt-1"></div>
+                        <div class="h-[38px] bg-gray-100 rounded-lg w-full"></div>
                     </div>
                 </div>
 
-                <!-- Row 2: Status & Applied At -->
+                <!-- Skeleton Row 2 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Status<span class="text-sm text-red-500">*</span></label>
-                        <select wire:model="status" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF] appearance-none cursor-pointer" required>
-                            <option value="">Select Status</option>
-                            <option value="Applied">Applied</option>
-                            <option value="Pre-Interview">Pre-Interview</option>
-                            <option value="Assesment">Assesment</option>
-                            <option value="Final-Interview">Final-Interview</option>
-                            <option value="Job Offer">Job Offer</option>
-                            <option value="Rejected">Rejected</option>
-                        </select>
+                    <div class="animate-pulse">
+                        <div class="h-3 bg-gray-200 rounded w-16 mb-2.5 mt-1"></div>
+                        <div class="h-[38px] bg-gray-100 rounded-lg w-full"></div>
                     </div>
-                    <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Applied At</label>
-                        <input type="date" wire:model="applied_at" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                    <div class="animate-pulse">
+                        <div class="h-3 bg-gray-200 rounded w-24 mb-2.5 mt-1"></div>
+                        <div class="h-[38px] bg-gray-100 rounded-lg w-full"></div>
                     </div>
                 </div>
 
-                <!-- Row 3: Address & Contact No -->
+                <!-- Skeleton Row 3 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Address</label>
-                        <input type="text" wire:model="address" placeholder="e.g. Tabaco City" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                    <div class="animate-pulse">
+                        <div class="h-3 bg-gray-200 rounded w-20 mb-2.5 mt-1"></div>
+                        <div class="h-[38px] bg-gray-100 rounded-lg w-full"></div>
                     </div>
-                    <div>
-                        <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Source Link</label>
-                        <input type="url" wire:model="source" placeholder="https://indeed.com/..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                    <div class="animate-pulse">
+                        <div class="h-3 bg-gray-200 rounded w-28 mb-2.5 mt-1"></div>
+                        <div class="h-[38px] bg-gray-100 rounded-lg w-full"></div>
                     </div>
+                </div>
+
+                <!-- Skeleton Footer Buttons -->
+                <div class="mt-8 flex justify-end gap-2 pt-2 animate-pulse">
+                    <div class="h-9 w-20 bg-gray-100 rounded-lg"></div>
+                    <div class="h-9 w-36 bg-gray-200 rounded-lg"></div>
                 </div>
 
             </div>
 
-            <!-- Modal Footer -->
-            <div class="mt-8 flex items-center justify-between pt-2">
-                <button type="button" class="text-sm font-medium text-red-500 hover:text-red-600 transition border border-transparent hover:border-red-100 px-3 py-2 rounded-lg hover:bg-red-50">
-                    Delete
-                </button>
+            <div wire:loading.remove>
+                <form class="overflow-y-auto pr-2 space-y-5 custom-scrollbar">
+                    
+                    <!-- Row 1: Company & Job Title -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Company<span class="text-sm text-red-500">*</span></label>
+                            <input type="text" wire:model="company" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Job Title<span class="text-sm text-red-500">*</span></label>
+                            <input type="text" wire:model="job_title" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                        </div>
+                    </div>
 
-                <div class="flex justify-end gap-3">
+                    <!-- Row 2: Status & Applied At -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Status<span class="text-sm text-red-500">*</span></label>
+                            <select wire:model="status" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF] appearance-none cursor-pointer" required>
+                                <option value="">Select Status</option>
+                                <option value="Applied">Applied</option>
+                                <option value="Pre-Interview">Pre-Interview</option>
+                                <option value="Assesment">Assesment</option>
+                                <option value="Final-Interview">Final-Interview</option>
+                                <option value="Job Offer">Job Offer</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Applied At</label>
+                            <input type="date" wire:model="applied_at" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Address & Contact No -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Address</label>
+                            <input type="text" wire:model="address" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Source Link</label>
+                            <input type="url" wire:model="source" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        </div>
+                    </div>
+
+                </form>
+            
+
+                <!-- Modal Footer -->
+                <div class="mt-8 items-center flex justify-end gap-2 pt-2">
+
                     <button @click="show = false" type="button" class="px-5 py-2 text-sm font-medium text-gray-500 hover:text-[#6C7A89] transition border border-transparent hover:border-gray-200 rounded-lg">
                         Cancel
                     </button>
-                    <button wire:click="storeApplication" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
+                    <button wire:click="updateApplication" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
                         Save Application
                     </button>
+                    
                 </div>
-                
             </div>
             
         </div>

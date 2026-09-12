@@ -7,7 +7,9 @@ use Livewire\Component;
 
 class ApplicationTable extends Component
 {
-
+    public function deleteApplication($id){
+        Application::findOrFail($id)->delete();
+    }
 
     public function render()
     {

@@ -14,7 +14,7 @@
         <div class="flex flex-col sm:flex-row items-center justify-start gap-3 w-full lg:w-auto mb-4">
 
             <div class="w-full sm:w-auto">
-                <select {{-- wire:model.live="status" --}} class="w-full border border-gray-200 text-[#6C7A89] py-2.5 text-xs rounded-lg focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none bg-[#FFFFFF] px-5 h-[42px] appearance-none cursor-pointer transition-all">
+                <select {{-- wire:model.live="status" --}} class="w-full border border-gray-100 text-[#6C7A89] py-2.5 text-xs rounded-lg focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none bg-[#FFFFFF] px-5 h-[42px] appearance-none cursor-pointer transition-all">
                     <option value="">All Status</option>s
                     <option>Applied</option>
                     <option>Pre-Interview</option>
@@ -33,7 +33,7 @@
                 <input type="text" 
                     {{-- wire:model.live.debounce.200ms="search"  --}}
                     placeholder="Search" 
-                    class="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm text-[#6C7A89] placeholder-[#6C7A89]/60 focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all h-[42px] bg-[#FFFFFF]">
+                    class="w-full pl-10 pr-4 py-2.5 border border-gray-100 rounded-lg text-sm text-[#6C7A89] placeholder-[#6C7A89]/60 focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all h-[42px] bg-[#FFFFFF]">
             </div>
         </div>
         <div
@@ -44,7 +44,7 @@
                     <tr>
                         <th class="px-6 py-4">Company</th>
                         <th class="px-6 py-4">Job Title</th>
-                        <th class="px-6 py-4">Location</th>
+                        <th class="px-6 py-4">Address</th>
                         <th class="px-6 py-4">Applied At</th>
                         <th class="px-6 py-4">Source Link</th>
                         <th class="px-6 py-4">Status</th>
@@ -57,7 +57,7 @@
                         <tr class="hover:bg-gray-50/50 transition duration-150">
                             <td class="px-6 py-2">{{ $application->company }}</td>
                             <td class="px-6 py-2">{{ $application->job_title }}</td>
-                            <td class="px-6 py-2">T{{ $application->job_address }}</td>
+                            <td class="px-6 py-2">{{ $application->job_address }}</td>
                             <td class="px-6 py-2">{{ $application->applied_at->format('M d, Y') }}</td>
                             <td class="px-6 py-2">
                                 <a href="{{ $application->source_link }}" target="_blank" @click.stop
@@ -71,9 +71,19 @@
                                 <span class="bg-[#6C7A89] text-[#FFFFFF] text-[11px] px-3 py-1.5 rounded-full font-medium tracking-wide">{{ $application->status }}</span>
                             </td>
                             <td class="px-6 py-2 text-center">
-                                <button  @click="$dispatch('open-details-modal')" class="text-[#6C7A89] hover:text-[#4A5568] hover:bg-gray-100 border border-transparent hover:border-gray-200 rounded-lg p-1.5 transition">
-                                    <x-heroicon-o-pencil class="w-4 h-4" />
-                                </button>
+                                <div class="flex items-center justify-center gap-1">
+                                    <button @click="$dispatch('open-details-modal')" wire:click="$dispatch('load-edit-data', { id: {{ $application->id }} })"
+                                            title="Edit Application"
+                                            class="text-[#6C7A89] hover:text-[#4A5568] hover:bg-gray-100 border border-transparent hover:border-gray-200 rounded-lg p-1.5 transition">
+                                        <x-heroicon-o-pencil class="w-4 h-4" />
+                                    </button>
+
+                                    <button wire:click="deleteApplication({{ $application->id }})" 
+                                            title="Delete Application"
+                                            class="text-red-400 hover:text-red-600 hover:bg-red-50 border border-transparent hover:border-red-100 rounded-lg p-1.5 transition">
+                                        <x-heroicon-o-trash class="w-4 h-4" />
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
