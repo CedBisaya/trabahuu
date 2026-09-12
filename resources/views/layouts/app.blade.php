@@ -19,6 +19,7 @@
         <div class="min-h-screen bg-white">
             @include('layouts.navigation')
 
+            <x-toast-notification/>
             <!-- Page Heading -->
             @isset($header)
                 <header class="bg-white shadow">

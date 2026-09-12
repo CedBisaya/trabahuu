@@ -58,6 +58,8 @@ class DetailsModal extends Component
             'source_link' => $this->source, 
         ]);
 
+        $this->dispatch('notify', message: 'Application updated successfully.', type: 'success');
+
         $this->dispatch('close-modal');
 
         $this->reset();

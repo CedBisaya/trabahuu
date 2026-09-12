@@ -50,6 +50,7 @@ class AddModal extends Component
 
             $this->reset();
             $this->dispatch('application-added');
+            $this->dispatch('notify', message: 'Application created successfully.', type: 'success');
             $this->dispatch('close-modal');
                 
                 
