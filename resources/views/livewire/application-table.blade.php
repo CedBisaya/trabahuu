@@ -33,7 +33,7 @@
                 <input type="text" 
                     {{-- wire:model.live.debounce.200ms="search"  --}}
                     placeholder="Search" 
-                    class="w-full pl-10 pr-4 py-2.5 border border-gray-100 rounded-lg text-sm text-[#6C7A89] placeholder-[#6C7A89]/60 focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all h-[42px] bg-[#FFFFFF]">
+                    class="w-full pl-10 pr-4 py-2.5 border border-gray-100 rounded-lg text-xs text-[#6C7A89] placeholder-[#6C7A89]/60 focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all h-[42px] bg-[#FFFFFF]">
             </div>
         </div>
         <div
@@ -61,7 +61,7 @@
                             <td class="px-6 py-2">{{ $application->applied_at->format('M d, Y') }}</td>
                             <td class="px-6 py-2">
                                 <a href="{{ $application->source_link }}" target="_blank" @click.stop
-                                    class="inline-flex items-center gap-1 hover:underline transition-colors group">
+                                    class="inline-flex items-center gap-1 underline transition-colors group">
                                     Visit
                                     <x-heroicon-o-arrow-up-right class="w-3.5 h-3.5 stroke-[1.5px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
                                 </a>
@@ -90,6 +90,10 @@
                 </tbody>
             </table>
         </div>
+        <div class="px-6 border-t border-gray-100">
+           <x-pagination/>
+        </div>
+        
 
         <livewire:add-modal />
         <livewire:details-modal />
