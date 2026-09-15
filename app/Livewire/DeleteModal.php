@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Application;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use App\Events\ApplicationTableUpdated;
 
 class DeleteModal extends Component
 {
@@ -18,9 +19,10 @@ class DeleteModal extends Component
     public function deleteApplication(){
         if ($this->deleteId) {
             Application::findOrFail($this->deleteId)->delete();
-            
-            $this->dispatch('close-modal');
+
             $this->dispatch('refresh-table');
+            ApplicationTableUpdated::dispatch();
+            $this->dispatch('close-modal');
             $this->dispatch('notify', message: 'Application deleted successfully.', type: 'success');
             $this->deleteId = null; // Reset
         }

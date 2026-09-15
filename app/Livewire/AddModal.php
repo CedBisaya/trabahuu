@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Application;
+use App\Events\ApplicationTableUpdated;
 use Illuminate\Support\Facades\Log;
 
 class AddModal extends Component
@@ -43,6 +44,8 @@ class AddModal extends Component
                 ]);
 
             $this->reset();
+            $this->dispatch('refresh-table');
+            ApplicationTableUpdated::dispatch();
             $this->dispatch('application-added');
             $this->dispatch('notify', message: 'Application created successfully.', type: 'success');
             $this->dispatch('close-modal');

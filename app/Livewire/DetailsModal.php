@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Application;
 use Livewire\Attributes\On;
+use App\Events\ApplicationTableUpdated;
 use Livewire\Component;
 
 class DetailsModal extends Component
@@ -57,6 +58,9 @@ class DetailsModal extends Component
             'job_address' => $this->address, 
             'source_link' => $this->source, 
         ]);
+
+        $this->dispatch('refresh-table');
+        ApplicationTableUpdated::dispatch();
 
         $this->dispatch('notify', message: 'Application updated successfully.', type: 'success');
 
