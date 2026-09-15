@@ -24,28 +24,22 @@ class AddModal extends Component
     {
         $this->validate([
             'job_title' => 'required|string|max:255',
-            'description' => 'nullable|string',
             'company' => 'required|string|max:255',
             'address' => 'nullable|string|max:255',
-            'contact_no' => 'nullable|string|max:20',
-            'source' => 'nullable|string|max:255',
+            'source' => 'nullable|url|max:255',
             'applied_at' => 'nullable|date',
             'status' => 'nullable|string|max:50',
-            'notes' => 'nullable|string',
         ]);
 
         return rescue(
             function () {
                 Application::create([
                     'job_title' => $this->job_title,
-                    'job_description' => $this->description, 
                     'company' => $this->company,
                     'job_address' => $this->address,
-                    'contact_no' => $this->contact_no,
                     'source_link' => $this->source,
                     'applied_at' => $this->applied_at,
                     'status' => $this->status,
-                    'notes' => $this->notes,
                 ]);
 
             $this->reset();
