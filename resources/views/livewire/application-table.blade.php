@@ -53,22 +53,26 @@
                 </thead>
                 <tbody class="divide-y divide-gray-50">
                     <!-- Mock Data Row -->
-                    @foreach ($applications as $application)
+                    @forelse ($applications as $application)
                         <tr class="hover:bg-gray-50/50 transition duration-150">
                             <td class="px-6 py-2">{{ $application->company }}</td>
                             <td class="px-6 py-2">{{ $application->job_title }}</td>
-                            <td class="px-6 py-2">{{ $application->job_address }}</td>
-                            <td class="px-6 py-2">{{ $application->applied_at->format('M d, Y') }}</td>
+                            <td class="px-6 py-2">{{ $application->job_address ?? 'Not Provided'}}</td>
+                            <td class="px-6 py-2">{{ $application->applied_at?->format('M d, Y') ?? 'Not Yet Applied'}}</td>
                             <td class="px-6 py-2">
-                                <a href="{{ $application->source_link }}" target="_blank" @click.stop
-                                    class="inline-flex items-center gap-1 underline transition-colors group">
-                                    Visit
-                                    <x-heroicon-o-arrow-up-right class="w-3.5 h-3.5 stroke-[1.5px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
-                                </a>
+                                @if($application->source_link)
+                                    <a href="{{ $application->source_link }}" target="_blank" @click.stop
+                                        class="inline-flex items-center gap-1 underline transition-colors group">
+                                        Visit
+                                        <x-heroicon-o-arrow-up-right class="w-3.5 h-3.5 stroke-[1.5px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
+                                    </a>
+                                @else
+                                    <span class="text-gray-400 italic text-xs">No link</span>
+                                @endif
                             </td>
                             <td class="px-6 py-2">
                                 <!-- Updated Minimalist Badge -->
-                                <span class="bg-[#6C7A89] text-[#FFFFFF] text-[11px] px-3 py-1.5 rounded-full font-medium tracking-wide">{{ $application->status }}</span>
+                                <span class="bg-[#6C7A89] text-[#FFFFFF] text-[11px] px-3 py-1.5 rounded-full font-medium tracking-wide">{{ $application->status ?? 'To Apply'}}</span>
                             </td>
                             <td class="px-6 py-2 text-center">
                                 <div class="flex items-center justify-center gap-1">
@@ -86,7 +90,25 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="7" class="px-6 py-16 text-center">
+                                <div class="flex flex-col items-center justify-center">
+                                    <!-- Optional soft icon -->
+                                    <div class="bg-gray-50 text-gray-300 p-3 rounded-full mb-3">
+                                        <x-heroicon-o-document-plus class="w-8 h-8 stroke-[1.5px]" />
+                                    </div>
+                                    
+                                    <p class="text-[#6C7A89] text-sm font-medium mb-4">Create your list of applications</p>
+                                    
+                                    <!-- Triggers your Add Modal -->
+                                    <button @click="$dispatch('open-add-modal')" class="px-5 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-xs font-bold rounded-lg shadow-sm transition-all active:scale-95">
+                                        Add First Application
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

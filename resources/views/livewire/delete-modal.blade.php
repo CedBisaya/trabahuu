@@ -39,7 +39,10 @@
                     Cancel
                 </button>
                 <button wire:click="deleteApplication" class="px-6 py-2 bg-red-400 hover:bg-red-500 text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
-                    Delete
+                    <span wire:loading.remove wire:target="deleteApplication">
+                        Delete Application
+                    </span>
+                    <x-loading target="deleteApplication" />
                 </button>
             </div>
         </div>

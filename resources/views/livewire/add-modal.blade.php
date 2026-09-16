@@ -34,10 +34,12 @@
                     <div>
                         <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Company<span class="text-sm text-red-500">*</span></label>
                         <input type="text" wire:model="company" placeholder="e.g. Samsung" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                        @error('company') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                     </div>
                     <div>
                         <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Job Title<span class="text-sm text-red-500">*</span></label>
                         <input type="text" wire:model="job_title" placeholder="e.g. IT Support" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                        @error('job_title') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -54,10 +56,12 @@
                             <option value="Job Offer">Job Offer</option>
                             <option value="Rejected">Rejected</option>
                         </select>
+                        @error('status') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                     </div>
                     <div>
                         <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Applied At</label>
                         <input type="date" wire:model="applied_at" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        @error('applied_at') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -66,10 +70,12 @@
                     <div>
                         <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Address</label>
                         <input type="text" wire:model="address" placeholder="e.g. Tabaco City" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        @error('address') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                     </div>
                     <div>
                     <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Source Link</label>
                         <input type="url" wire:model="source" placeholder="https://indeed.com/..." class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                        @error('source') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
@@ -81,8 +87,12 @@
                 <button @click="show = false" type="button" class="px-5 py-2 text-sm font-medium text-gray-500 hover:text-[#6C7A89] transition border border-transparent hover:border-gray-200 rounded-lg">
                     Cancel
                 </button>
-                <button wire:click="storeApplication" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
-                    Save Application
+                <button wire:click="storeApplication" wire:loading.attr="disabled"
+                    class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
+                        <span wire:loading.remove wire:target="storeApplication">
+                            Save Application
+                        </span>
+                        <x-loading target="storeApplication" />
                 </button>
             </div>
 

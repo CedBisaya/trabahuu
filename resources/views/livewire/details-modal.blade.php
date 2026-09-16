@@ -82,10 +82,12 @@
                         <div>
                             <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Company<span class="text-sm text-red-500">*</span></label>
                             <input type="text" wire:model="company" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                            @error('company') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Job Title<span class="text-sm text-red-500">*</span></label>
                             <input type="text" wire:model="job_title" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]" required>
+                            @error('job_title') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                         </div>
                     </div>
 
@@ -102,10 +104,12 @@
                                 <option value="Job Offer">Job Offer</option>
                                 <option value="Rejected">Rejected</option>
                             </select>
+                            @error('status') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Applied At</label>
                             <input type="date" wire:model="applied_at" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                            @error('applied_at') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                         </div>
                     </div>
 
@@ -114,10 +118,12 @@
                         <div>
                             <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Address</label>
                             <input type="text" wire:model="address" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                            @error('address') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Source Link</label>
                             <input type="url" wire:model="source" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-[#6C7A89] focus:border-[#6C7A89] focus:ring-1 focus:ring-[#6C7A89] outline-none transition-all bg-[#FFFFFF]">
+                            @error('source') <span class="text-[11px] text-red-500 mt-1 block font-medium">{{ $message }}</span> @enderror
                         </div>
                     </div>
 
@@ -131,7 +137,10 @@
                         Cancel
                     </button>
                     <button wire:click="updateApplication" class="px-6 py-2 bg-[#6C7A89] hover:bg-[#5B6A8C] text-[#FFFFFF] text-sm font-bold rounded-lg shadow-sm transition-all active:scale-95">
-                        Save Application
+                        <span wire:loading.remove wire:target="updateApplication">
+                            Save Application
+                        </span>
+                        <x-loading target="updateApplication" />
                     </button>
                     
                 </div>
