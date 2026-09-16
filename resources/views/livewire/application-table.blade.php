@@ -71,7 +71,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-2">
-                                <span class="bg-[#6C7A89] text-white text-xs px-3 py-1.5 rounded-full font-medium tracking-wide">{{ $application->status ?? 'To Apply' }}</span>
+                                <x-badge :status="$application->status" />
                             </td>
                             <td class="px-6 py-2 text-center">
                                 <div class="flex items-center justify-center gap-1">
