@@ -1,4 +1,4 @@
-<div class="bg-[#FFFFFF] border border-gray-100 rounded-xl shadow-sm p-4 mt-6">
+<div class="bg-[#FFFFFF] border border-gray-100 rounded-xl shadow-xs p-4 mt-6">
     <!-- Alpine JS Calendar Logic -->
     <div x-data="{
         month: new Date().getMonth(),
