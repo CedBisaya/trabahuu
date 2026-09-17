@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/images/tangeks.png" alt="Trabahuu Logo" width="64" />
+  <img src="public/images/tangeks.png" alt="Trabahuu Logo" width="128" />
 </p>
 
 <h1 align="center">Trabahuu</h1>
