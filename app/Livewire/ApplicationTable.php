@@ -5,15 +5,19 @@ namespace App\Livewire;
 use App\Models\Application;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithFileUploads; 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ApplicationsImport;
 use Livewire\WithPagination;
 
 class ApplicationTable extends Component
 {
-    use WithPagination;
+    use WithPagination, WithFileUploads;
 
     public $search = '';
     public $statusFilter = '';
     public $perPage = 5;
+    public $excelFile;
 
     public function updatingSearch() {
         $this->resetPage(); 
@@ -29,6 +33,22 @@ class ApplicationTable extends Component
         $this->reset(['search', 'statusFilter']);
         
         $this->resetPage();
+    }
+
+    public function updatedExcelFile()
+    {
+        $this->validate([
+            'excelFile' => 'required|file|mimes:xlsx,xls,csv|max:10240',
+        ]);
+
+        // Run the import magic
+        Excel::import(new ApplicationsImport, $this->excelFile);
+
+        // Clear the file from Livewire's temporary storage
+        $this->reset('excelFile');
+
+        // Optional: Trigger a success notification or refresh the table
+        $this->dispatch('notify', message: 'Data imported successfully!', type: 'success');
     }
 
     // Listen for the local modal update

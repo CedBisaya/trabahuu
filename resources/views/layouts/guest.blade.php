@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <a href="/">
-                    <image src="/images/tanga.png" class="w-24 h-24 fill-current" />
+                    <image src="/images/tangeks.png" class="w-32 h-32 fill-current" />
                 </a>
             </div>
 

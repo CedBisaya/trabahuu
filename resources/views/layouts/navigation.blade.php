@@ -6,14 +6,15 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <image src="/images/tanga.png" class="block h-9 w-auto fill-current text-gray-800" />
+                        <image src="/images/tangeks.png" class="block h-9 w-auto fill-current" />
                     </a>
-                    <p class="ml-2 text-md font-semibold">Trabahuu</p>
+                    <p class="ml-2 text-md text-[#6C7A89] font-semibold">Trabahuu</p>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <x-heroicon-o-bell class="w-6 h-6 text-[#6C7A89] hover:text-[#5b7087] transition cursor-pointer" />
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
