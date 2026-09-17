@@ -1,4 +1,4 @@
-# Trabahuu 🎯
+# <img src="public/images/tangeks.png" alt="Trabahuu Logo" width="32" style="vertical-align: middle;" /> Trabahuu
 
 A minimalist job application tracking system. Trabahuu helps job seekers organize their job hunt with a clean, responsive UI, live data synchronization, and bulk Excel import capabilities.
 
